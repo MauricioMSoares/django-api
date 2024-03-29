@@ -29,3 +29,13 @@ python manage.py startapp app_name
 
 Then, on your main project, settings.py, add the name of the app you just created in the INSTALLED_APPS list. <br>
 Next, inside your app's models.py, create a class for your Model.
+
+### Django REST API additional requirements
+
+```
+pip install djangorestframework
+pip install django-filter
+pip install markdown
+```
+
+Make sure to add rest_framework on settings.py, INSTALLED_APPS.
