@@ -19,8 +19,11 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from users import router as users_api_router
+from users import views
 
 auth_api_urls = [
+    path('authorize/', views.authorize, name='authorize'),
+    path('token/', views.token, name='token'),
     path(r"", include("rest_framework_social_oauth2.urls")),
 ]
 
