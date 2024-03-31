@@ -82,6 +82,7 @@ class TaskSerializer(serializers.ModelSerializer):
             "created_by",
             "completed_on",
             "completed_by",
+            "status",
         ]
 
 
