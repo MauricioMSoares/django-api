@@ -13,7 +13,7 @@ class TaskListViewSet(
     mixins.RetrieveModelMixin,
     mixins.UpdateModelMixin,
     mixins.DestroyModelMixin,
-    mixins.ListModelMixin,
+    # mixins.ListModelMixin,
     viewsets.GenericViewSet,
 ):
     permission_classes = [
@@ -29,6 +29,12 @@ class TaskViewSet(viewsets.ModelViewSet):
     ]
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
+
+    def get_queryset(self):
+        queryset = super(TaskViewSet, self).get_queryset()
+        user_profile = self.request.user.profile
+        updated_queryset = queryset.filter(created_by=user_profile)
+        return updated_queryset
 
 
 class AttachmentViewSet(
