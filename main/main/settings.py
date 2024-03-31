@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework_social_oauth2',
     'users',
     'house',
+    'task',
 ]
 
 MIDDLEWARE = [
